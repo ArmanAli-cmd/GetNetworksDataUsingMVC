@@ -1,0 +1,6 @@
+C:\Users\Pc3\Source\Repos\GetDataApplication\Network.Db\bin\Debug\Network.Db.dll
+C:\Users\Pc3\Source\Repos\GetDataApplication\Network.Db\bin\Debug\Network.Db.pdb
+C:\Users\Pc3\Source\Repos\GetDataApplication\Network.Db\obj\Debug\Network.Db.csproj.AssemblyReference.cache
+C:\Users\Pc3\Source\Repos\GetDataApplication\Network.Db\obj\Debug\Network.Db.csproj.CoreCompileInputs.cache
+C:\Users\Pc3\Source\Repos\GetDataApplication\Network.Db\obj\Debug\Network.Db.dll
+C:\Users\Pc3\Source\Repos\GetDataApplication\Network.Db\obj\Debug\Network.Db.pdb

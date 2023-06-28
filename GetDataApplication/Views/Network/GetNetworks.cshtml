@@ -1,0 +1,35 @@
+﻿@model List<Network>
+
+<h1>Networks</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Serial Number</th>
+            <th>Customer ID</th>
+            <th>Model</th>
+            <th>Networks</th>
+            <th>Net Type</th>
+            <th>Address</th>
+            <th>Connection Type</th>
+            <th>Bet Band</th>
+            <th>Signal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var network in Model)
+        {
+            <tr>
+                <td>@network.SerialNumber</td>
+                <td>@network.CustomerId</td>
+                <td>@network.Model</td>
+                <td>@network.Networks</td>
+                <td>@network.NetType</td>
+                <td>@network.Address</td>
+                <td>@network.ConType</td>
+                <td>@network.BetBand</td>
+                <td>@network.Signal</td>
+            </tr>
+        }
+    </tbody>
+</table>

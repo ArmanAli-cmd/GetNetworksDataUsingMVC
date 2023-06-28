@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NetworkModelStoreContainer" CdmEntityContainer="NetworkEntities">
+    <EntitySetMapping Name="Network">
+      <EntityTypeMapping TypeName="NetworkModel.Network">
+        <MappingFragment StoreEntitySet="Network">
+          <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Networks" ColumnName="Networks" />
+          <ScalarProperty Name="NetType" ColumnName="NetType" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ConType" ColumnName="ConType" />
+          <ScalarProperty Name="BetBand" ColumnName="BetBand" />
+          <ScalarProperty Name="Signal" ColumnName="Signal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
