@@ -23,6 +23,9 @@ namespace GetDataApplication.Migrations
 
             modelBuilder.Entity("GetDataApplication.Models.Network", b =>
                 {
+                    b.Property<string>("SerialNumber")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Address")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -51,13 +54,11 @@ namespace GetDataApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SerialNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Signal")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SerialNumber");
 
                     b.ToTable("Networks");
                 });
