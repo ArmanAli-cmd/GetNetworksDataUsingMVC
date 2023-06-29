@@ -10,7 +10,7 @@ namespace GetDataApplication.Models
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Network>().HasNoKey();
+            modelBuilder.Entity<Network>().HasKey(e => e.SerialNumber);
         }
 
         public DbSet<Network> Networks { get; set; }

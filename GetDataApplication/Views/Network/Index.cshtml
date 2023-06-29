@@ -1,0 +1,171 @@
+﻿@model IEnumerable<GetDataApplication.Models.Network>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@* Add the following CSS classes to your CSS file or style section *@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    /* Search box styles */
+    form {
+        margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+        padding: 8px;
+        width: 200px;
+    }
+
+    button {
+        padding: 8px 16px;
+    }
+
+    /* Table styles */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    tbody tr:hover {
+        font-weight: bold;
+    }
+    .indicator-green {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background-color: greenyellow;
+        border-radius: 50%;
+    }
+
+    .indicator-black {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background-color: black;
+        border-radius: 50%;
+    }
+
+    .model-cell {
+        white-space: nowrap;
+    }
+
+    .model-line1,
+    .model-line2 {
+        display: block;
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.row-item').click(function () {
+            $('.indicator-black').removeClass('indicator-black').addClass('indicator-green');
+            $(this).find('.indicator-green').removeClass('indicator-green').addClass('indicator-black');
+        });
+    });
+</script>
+<script>
+    function searchTable() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.trim().toUpperCase();
+        table = document.querySelector(".table");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                txtValue = txtValue.trim();
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+
+<form asp-controller ="Network" asp-action="Search" method="get">
+    <input type="text" id="searchInput" name="searchInput" placeholder="Search by Serial Number" />
+    <button type="submit">Search</button>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Indicator</th>
+            <th>
+                @Html.DisplayName("Serial Number")
+            </th>
+            <th>
+                @Html.DisplayName("Customer")
+            </th>
+            <th>
+                @Html.DisplayName("Model")
+            </th>
+            <th>
+                @Html.DisplayName("Network")
+            </th>
+            <th>
+                @Html.Raw("Net. Type")
+            </th>
+            <th>
+                @Html.Raw("Con. Type")
+            </th>
+            <th>
+                @Html.Raw("Net. Band")
+            </th>
+            <th>
+                @Html.DisplayName("Signal")
+            </th>
+            <th>Message</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            string modelData = item.Model;
+            string line1 = modelData.Substring(0, modelData.IndexOf('-') + 1);
+            string line2 = modelData.Substring(modelData.IndexOf('-') + 1);
+        <tr class="row-item">
+            <td>
+                <span class="indicator-green"></span>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SerialNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerId)
+            </td>
+            <td class="model-cell">
+                    <span class="model-line1">@line1</span>
+                    <span class="model-line2">@line2</span>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Networks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NetType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BetBand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Signal)
+            </td>
+            <td>
+                    <i style="font-size:20px; color:grey" class="fa">&#xf05e;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <i style="font-size:20px; color:red" class="fa">&#xf017;</i>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

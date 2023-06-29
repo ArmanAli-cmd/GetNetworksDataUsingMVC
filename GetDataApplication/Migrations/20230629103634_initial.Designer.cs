@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GetDataApplication.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230628113638_initial")]
+    [Migration("20230629103634_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -26,6 +26,9 @@ namespace GetDataApplication.Migrations
 
             modelBuilder.Entity("GetDataApplication.Models.Network", b =>
                 {
+                    b.Property<string>("SerialNumber")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Address")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -54,13 +57,11 @@ namespace GetDataApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SerialNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Signal")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SerialNumber");
 
                     b.ToTable("Networks");
                 });

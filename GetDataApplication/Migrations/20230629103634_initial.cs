@@ -14,7 +14,7 @@ namespace GetDataApplication.Migrations
                 name: "Networks",
                 columns: table => new
                 {
-                    SerialNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SerialNumber = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     CustomerId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Model = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Networks = table.Column<string>(type: "nvarchar(max)", nullable: false),
